@@ -16,8 +16,7 @@ import java.time.Duration;
 
 public class ProductPage {
     private WebDriver driver;
-    private By buyBtn = By.xpath("//button[contains(@class, 'buy-button')]]");
-    private By addToCartBtn = By.cssSelector(".button.cart-receipt__submit");
+    private By buyBtn = By.cssSelector(".product-button__buy.ng-star-inserted");
     private By productTitle = By.cssSelector("h1.title__font.ng-star-inserted");
 
     public ProductPage(WebDriver driver){
@@ -26,25 +25,16 @@ public class ProductPage {
 
 
     public void addToCart(){
-//        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-//        WebElement clickableBuyButton = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(buyBtn)));
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement clickableBuyButton = wait.until(ExpectedConditions.elementToBeClickable(buyBtn));
+        WebElement clickableBuyButton = wait.until(ExpectedConditions.presenceOfElementLocated(buyBtn));
         driver.findElement(buyBtn).click();
-
-
-        WebDriverWait waitfor = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement order = waitfor.until(ExpectedConditions.elementToBeClickable(addToCartBtn));
-
-        driver.findElement(addToCartBtn).click();
 
     }
 
     public String getCurrentTitle(){
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement currentTitle = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(productTitle)));
+        WebElement currentTitle = wait.until(ExpectedConditions.presenceOfElementLocated(productTitle));
 
-        return currentTitle.getText();
+        return driver.findElement(productTitle).getText();
     }
 }

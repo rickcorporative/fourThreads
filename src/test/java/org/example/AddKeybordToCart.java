@@ -17,13 +17,13 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddIphoneToCart {
+public class AddKeybordToCart {
     //поля
     private WebDriver driver;
     private MainPage mainPage;
     private ProductPage productPage;
     private CartPage cartPage;
-    private String searchQuery = "iPhone 16";
+    private String searchQuery = "Клавиатура";
     private List<String> cartItems = new ArrayList<>();
 
     // настройка перед тестом

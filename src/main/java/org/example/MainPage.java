@@ -45,6 +45,7 @@ public class MainPage {
 
     public void clickFirstProduct () {
 
+
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement product = wait.until(ExpectedConditions.visibilityOfElementLocated(firstProduct));
 

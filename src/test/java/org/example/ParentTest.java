@@ -10,6 +10,7 @@ package org.example;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 
@@ -21,7 +22,7 @@ public class ParentTest {
     // настройка перед тестом
     @Parameters({"browser", "useBrowserStack"})
     @BeforeMethod
-    public void setup(String browser, String useBrowserStack) {
+    public void setup(@Optional("chrome") String browser, @Optional("false") String useBrowserStack) {
         System.setProperty("browser", browser);
         if(useBrowserStack != null && useBrowserStack.equalsIgnoreCase("true")){
             System.setProperty("useBrowserStack", "true");

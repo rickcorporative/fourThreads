@@ -30,7 +30,7 @@ public class AddKeybordToCart extends ParentTest{
 
 
         mainPage.clickFirstProduct();
-
+//
         //adding product to the state of cart
         this.cartItems.add(productPage.getCurrentTitle());
         //click on btn
@@ -38,7 +38,7 @@ public class AddKeybordToCart extends ParentTest{
 
 //        again checking
         Assert.assertTrue(cartItems.get(0).contains(productPage.getCurrentTitle()), "Ім'я товару зі сторінки не знайдено в корзині!");
-
+//
         cartPage.removeProduct();
         this.cartItems.remove(0);
 

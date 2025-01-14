@@ -21,7 +21,7 @@ public class MainPage {
     private By searchBox = By.name("search"); // Локатор поля поиска
     private By searchButton = By.cssSelector("button.button_color_green.button_size_medium.search-form__submit"); // Локатор кнопки поиска
     private By cartBtn = By.cssSelector("button.header-cart__button");
-    private By firstProduct = By.cssSelector(".goods-tile__title.ng-star-inserted");
+    private By firstProduct = By.xpath("//span[contains(@class, 'goods-tile__title')]");
 
     public MainPage(WebDriver driver) {
         this.driver = driver;

@@ -21,7 +21,6 @@ public class MainPage {
     private By searchBox = By.name("search"); // Локатор поля поиска
     private By searchButton = By.cssSelector("button.button_color_green.button_size_medium.search-form__submit"); // Локатор кнопки поиска
     private By cartBtn = By.cssSelector("button.header-cart__button");
-    private By productList = By.cssSelector("section.content_type_catalog");
     private By firstProduct = By.cssSelector(".goods-tile__title.ng-star-inserted");
 
     public MainPage(WebDriver driver) {
@@ -34,7 +33,7 @@ public class MainPage {
 
     public void searchProduct(String productName) {
         try {
-            Thread.sleep(3000); // Пауза 3 секунды, чтобы страница прогрузилась
+            Thread.sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -45,9 +44,8 @@ public class MainPage {
 
     public void clickFirstProduct () {
 
-
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement product = wait.until(ExpectedConditions.visibilityOfElementLocated(firstProduct));
+        WebElement product = wait.until(ExpectedConditions.elementToBeClickable(firstProduct));
 
         driver.findElements(firstProduct).get(0).click();
     }
@@ -59,10 +57,7 @@ public class MainPage {
         cart.click();
     }
 
-    public void waitProductListLoaded(){
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(productList));
-    }
+
 
 
 }

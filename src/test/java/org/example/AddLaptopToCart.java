@@ -6,34 +6,17 @@
  */
 package org.example;
 
-
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddLaptopToCart {
-    //поля
-    private WebDriver driver;
-    private MainPage mainPage;
-    private ProductPage productPage;
-    private CartPage cartPage;
+public class AddLaptopToCart extends ParentTest{
+
     private String searchQuery = "Клавиатура";
     private List<String> cartItems = new ArrayList<>();
 
-    // настройка перед тестом
-    @BeforeMethod
-    public void setup(){
-        driver = DriverManager.getDriver();
-        mainPage = new MainPage(driver);
-        productPage = new ProductPage(driver);
-        cartPage = new CartPage(driver);
-    }
+
 
     //початок тесту
     @Test
@@ -77,9 +60,5 @@ public class AddLaptopToCart {
 //        Assert.assertTrue(cartItems.isEmpty(), "Корзина пуста");
 
     }
-    //the end
-    @AfterMethod
-    public void teardown() {
-        DriverManager.quitDriver();
-    }
+
 }

@@ -17,23 +17,11 @@ import org.testng.annotations.Test;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AddIphoneToCart {
+public class AddIphoneToCart extends ParentTest{
     //поля
-    private WebDriver driver;
-    private MainPage mainPage;
-    private ProductPage productPage;
-    private CartPage cartPage;
     private String searchQuery = "iPhone 16";
     private List<String> cartItems = new ArrayList<>();
 
-    // настройка перед тестом
-    @BeforeMethod
-    public void setup(){
-        driver = DriverManager.getDriver();
-        mainPage = new MainPage(driver);
-        productPage = new ProductPage(driver);
-        cartPage = new CartPage(driver);
-    }
 
     //початок тесту
     @Test
@@ -77,9 +65,5 @@ public class AddIphoneToCart {
 //        Assert.assertTrue(cartItems.isEmpty(), "Корзина пуста");
 
     }
-    //the end
-    @AfterMethod
-    public void teardown() {
-        DriverManager.quitDriver();
-    }
+
 }
